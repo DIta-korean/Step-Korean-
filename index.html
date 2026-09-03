@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한글 시작 — Learn to Read Hangul</title>
+<meta name="description" content="An interactive first lesson in Korean: read Hangul, build your own syllable blocks, and learn the essential greetings, numbers, and phrases.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="topbar">
+  <div class="topbar__mark" aria-hidden="true">
+    <svg viewBox="0 0 40 40" class="mark-svg">
+      <circle cx="12" cy="12" r="7" class="mark-o"></circle>
+      <line x1="24" y1="6" x2="24" y2="34" class="mark-l"></line>
+      <line x1="24" y1="20" x2="34" y2="20" class="mark-l"></line>
+    </svg>
+  </div>
+  <div class="topbar__title">한글 시작 <span>· hangul-sijak</span></div>
+  <nav class="topbar__nav">
+    <a href="#vowels">Vowels</a>
+    <a href="#consonants">Consonants</a>
+    <a href="#builder">Build a block</a>
+    <a href="#quiz">Quiz</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero__text">
+      <p class="hero__eyebrow">A free, interactive first lesson · no signup</p>
+      <h1 class="hero__title">
+        <span class="build-word" id="build-word" aria-label="annyeonghaseyo, hello"></span>
+        <span class="hero__title-sub">is where every sentence starts.</span>
+      </h1>
+      <p class="hero__lede">Hangul was engineered in 1443 to be learned fast — it's a small set of shapes that stack into square blocks, not thousands of characters to memorize. This page teaches you to read it, build it yourself, and say your first real sentences.</p>
+      <div class="hero__actions">
+        <a href="#vowels" class="btn btn--primary">Start with the vowels</a>
+        <a href="#builder" class="btn btn--ghost">Jump to the block builder</a>
+      </div>
+      <p class="hero__note">Working on pronunciation with audio, and full roleplay practice? That's the next course — this page covers the reading and writing foundation.</p>
+    </div>
+    <div class="hero__figure">
+      <div id="mascot-mount" class="mascot-mount" aria-hidden="true"></div>
+      <p class="hero__figure-cap">drag to spin — built from the same three strokes as ㅎㅏㄴ</p>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="why" id="why">
+    <div class="why__inner">
+      <h2 class="why__head">One system, three moving parts</h2>
+      <p class="why__body">Every Hangul syllable is built the same way: an initial consonant, a vowel, and — often — a final consonant, stacked into one square block. Learn the shapes once and you can read any block in the language, the same way you'd sound out a new word in English once you know the alphabet. That's the whole lesson below, in order: vowels, consonants, then how they combine.</p>
+      <div class="why__strokes" aria-hidden="true">
+        <div class="stroke-card"><span class="stroke-glyph">ㄱ</span><span class="stroke-label">back of tongue lifting</span></div>
+        <div class="stroke-card"><span class="stroke-glyph">ㅁ</span><span class="stroke-label">a closed mouth</span></div>
+        <div class="stroke-card"><span class="stroke-glyph">ㅅ</span><span class="stroke-label">a tooth</span></div>
+        <div class="stroke-card"><span class="stroke-glyph">ㅇ</span><span class="stroke-label">an open throat</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VOWELS ============ -->
+  <section class="lesson" id="vowels">
+    <div class="lesson__head">
+      <p class="lesson__eyebrow">Step 1</p>
+      <h2>The 10 basic vowels</h2>
+      <p class="lesson__intro">Vowels are vertical or horizontal lines built off a single stroke, plus a mark for where your mouth opens. Tap any card to see how it sounds.</p>
+    </div>
+    <div class="glyph-grid" id="vowel-grid"></div>
+  </section>
+
+  <!-- ============ CONSONANTS ============ -->
+  <section class="lesson lesson--dim" id="consonants">
+    <div class="lesson__head">
+      <p class="lesson__eyebrow">Step 2</p>
+      <h2>The 19 consonants</h2>
+      <p class="lesson__intro">Fourteen basic shapes, each one a small diagram of your tongue, lips, or throat — plus five "tense" doubled versions, spoken tighter and sharper. Tap any card.</p>
+    </div>
+    <div class="glyph-grid" id="consonant-grid"></div>
+  </section>
+
+  <!-- ============ BLOCK BUILDER ============ -->
+  <section class="lesson" id="builder">
+    <div class="lesson__head">
+      <p class="lesson__eyebrow">Step 3</p>
+      <h2>Build your own block</h2>
+      <p class="lesson__intro">Pick an initial consonant and a vowel — add a final consonant (받침, batchim) if you like — and watch the real Hangul character assemble.</p>
+    </div>
+
+    <div class="builder">
+      <div class="builder__controls">
+        <div class="builder__field">
+          <span class="builder__label">Initial consonant</span>
+          <div class="builder__options" id="builder-initials"></div>
+        </div>
+        <div class="builder__field">
+          <span class="builder__label">Vowel</span>
+          <div class="builder__options" id="builder-medials"></div>
+        </div>
+        <div class="builder__field">
+          <span class="builder__label">Final consonant <em>(optional — 받침)</em></span>
+          <div class="builder__options" id="builder-finals"></div>
+        </div>
+      </div>
+      <div class="builder__stage">
+        <div class="builder__block" id="builder-output">?</div>
+        <p class="builder__hint" id="builder-hint">Choose an initial and a vowel to begin.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GREETINGS ============ -->
+  <section class="lesson lesson--dim" id="phrases">
+    <div class="lesson__head">
+      <p class="lesson__eyebrow">Step 4</p>
+      <h2>Greetings you'll use immediately</h2>
+      <p class="lesson__intro">Eight phrases that cover hello, goodbye, thanks, apologies, yes/no, and asking a price.</p>
+    </div>
+    <div class="phrase-grid" id="phrase-grid"></div>
+  </section>
+
+  <!-- ============ NUMBERS ============ -->
+  <section class="lesson" id="numbers">
+    <div class="lesson__head">
+      <p class="lesson__eyebrow">Step 5</p>
+      <h2>Numbers 1–10</h2>
+      <p class="lesson__intro">This is the Sino-Korean set — used for money, phone numbers, dates, and counting minutes.</p>
+    </div>
+    <div class="number-row" id="number-row"></div>
+  </section>
+
+  <!-- ============ SELF-INTRO PATTERN ============ -->
+  <section class="pattern lesson--dim" id="pattern">
+    <div class="pattern__inner">
+      <p class="lesson__eyebrow">Step 6</p>
+      <h2>Say who you are</h2>
+      <p class="pattern__intro">One pattern gets you a full sentence: <strong>저는 [이름]이에요 / 예요</strong> — "I am [name]." Which ending you use depends on the very last sound of the name.</p>
+      <div class="pattern__grid">
+        <div class="pattern__card">
+          <span class="pattern__tag">Name ends in a consonant sound</span>
+          <span class="pattern__example">저는 <em>민준</em>이에요</span>
+          <span class="pattern__gloss">I am Minjun.</span>
+        </div>
+        <div class="pattern__card">
+          <span class="pattern__tag">Name ends in a vowel sound</span>
+          <span class="pattern__example">저는 <em>수아</em>예요</span>
+          <span class="pattern__gloss">I am Sua.</span>
+        </div>
+      </div>
+      <p class="pattern__note">Try it: swap in your own name using the sound it ends on, not the spelling.</p>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="lesson" id="quiz">
+    <div class="lesson__head">
+      <p class="lesson__eyebrow">Check yourself</p>
+      <h2>Flip through what you just learned</h2>
+      <p class="lesson__intro">Tap a card to see the meaning, then tap again to flip it back.</p>
+    </div>
+    <div class="quiz-grid" id="quiz-grid"></div>
+  </section>
+
+  <!-- ============ NEXT STEPS ============ -->
+  <section class="join" id="join">
+    <h2>That's the reading foundation. Next comes speaking it.</h2>
+    <p>A full course — audio pronunciation, roleplay scenarios, and pair-practice drills — is coming next. This page will stay here as the free first lesson.</p>
+    <a href="#top" class="btn btn--primary btn--large">Back to the top</a>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__mark" aria-hidden="true">한글 시작</div>
+  <p>A free interactive first lesson in reading Hangul.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/lessons.js"></script>
+<script src="js/main.js"></script>
+<script src="js/mascot.js"></script>
+</body>
+</html>
